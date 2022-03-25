@@ -1,12 +1,9 @@
 package com.max.decoratorpattern.part1.component
 
-abstract class Beverage {
+interface Beverage {
 
-    private var description: String = "Unknown Beverage"
+    fun getDescription(): String
 
-    open fun getDescription(): String = description
-
-    abstract fun cost(): Int
-
+    fun cost(): Int
 }
 
