@@ -15,11 +15,13 @@ class CompressionDecorator(source: DataSource): DataSourceDecorator(source) {
     var compressionLevel = 6
 
     override fun writeData(data: String) {
-        super.writeData(compress(data)!!)
+        val compressData = compress(data)!!
+        super.writeData(compressData)
     }
 
     override fun readData(): String {
-        return decompress(super.readData())!!
+        val data = super.readData()
+        return decompress(data)!!
     }
 
     private fun compress(stringData: String): String? {

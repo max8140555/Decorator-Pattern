@@ -7,11 +7,13 @@ import com.max.decoratorpattern.part2.component.decorator.DataSourceDecorator
 class EncryptionDecorator(source: DataSource): DataSourceDecorator(source) {
 
     override fun writeData(data: String) {
-        super.writeData(encode(data))
+        val encodeData = encode(data)
+        super.writeData(encodeData)
     }
 
     override fun readData(): String {
-        return decode(super.readData())
+        val data = super.readData()
+        return decode(data)
     }
 
     private fun encode(data: String): String {
